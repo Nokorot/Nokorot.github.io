@@ -1,0 +1,35 @@
+{% extends "header.html" %}
+
+{% block script %}
+<script>
+function codeEndered() {
+    var qty = document.getElementById('code').value;
+
+		window.location.href = '/pointsystem/' + qty
+}
+function newcode() {
+    var qty = document.getElementById('make-code').value;
+
+    window.alert(qty)
+
+    var request = new XMLHttpRequest();
+    request.open("GET", '/pointsystem/make/' + qty, true);
+    request.send();
+
+		//window.location.href = '/make-pointsystem/' + qty
+}
+</script>
+{% endblock %}
+
+{% block body %}
+
+<div style="margin-top: 13px;">
+
+	<div class="box">
+		<label>Write in the code</label>
+		<input id="code" onchange="codeEndered()" value="" style="width:80%"/>
+	</div>
+
+</div>
+
+{% endblock %}

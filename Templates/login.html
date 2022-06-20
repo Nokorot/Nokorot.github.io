@@ -1,0 +1,26 @@
+
+{% extends "header.html"%}
+
+
+{% block body %}
+<div style="margin-top: 13px;">
+
+{% if session['logged_in'] %}
+
+You're logged in already!
+
+
+{% else %}
+{% if wrong_pass %}
+Wrong username or password!
+{% endif%}
+
+<form action="/login" method="POST">
+<input type="username" name="username" placeholder="Username">
+<input type="password" name="password" placeholder="Password">
+<input type="submit" value="Log in">
+</form>
+{% endif %}
+
+</div>
+{% endblock %}

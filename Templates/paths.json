@@ -1,0 +1,23 @@
+{
+    "/": { "file": "main.html", "aliases": ["/main"] },
+    "/papers":          "papers.html",
+    "/contacts":        "contacts.html",
+    "/cv":              "templates/torhgjone_cv_en.pdf",
+    "/cv/<lang>":       "templates/torhgjone_cv_{lang}.pdf",
+    "/papers/<paper>":  "templates/papers_{paper}.pdf",
+    "/player":          "player.html",
+    "/woodwork":        "woodwork.html",
+    "/tmp2":            "tmp2.html",
+    "/tmp":             "tmp.html",
+    "/<lang>": {
+         "subpaths": {
+             "/main": "main.html",
+             "/cv":   "templates/torhgjone_cv_{lang}.pdf"
+         }
+     },
+     "": { "requires_admin": true,
+        "subpaths": {
+            "/home":  "home.html"
+        }
+    }
+}

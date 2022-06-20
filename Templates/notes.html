@@ -1,0 +1,13 @@
+{% extends "home-header.html" %}
+
+{% block body %}
+
+<div class="filelist">
+<ul align=left >
+  {% for v in lst %}
+  <li> <a href="/notes/{{v}}">{{v}}</a> </li>
+  {% endfor %}
+</ul>
+</div>
+
+{% endblock %}

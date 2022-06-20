@@ -1,0 +1,64 @@
+{% extends "home-header.html" %}
+
+{% block body %}
+<div style="margin-top: 0px; margin: 20px ">
+
+<style>
+@media screen and (min-width: 800px) {
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin-top: 10px;
+}}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+function request(url) {
+    var xmlHttp = new XMLHttpRequest();
+    {# Change to be a post request. #}
+    xmlHttp.open("GET", url, false);
+    xmlHttp.send(null);
+    
+    return xmlHttp.responseText;
+}
+
+function back() {
+    console.log("Hey");
+    window.location.href="/notes";
+}
+function save() {
+    var value = document.getElementById('entry').value;
+
+    var xmlHttp = new XMLHttpRequest();
+    {# Change to be a post request. #}
+    xmlHttp.open("POST", '/notes/{{filename}}', false);
+    xmlHttp.send(value);
+}
+function refresh() {
+    var value = document.getElementById('entry').value;
+    document.getElementById('preview').innerHTML = marked(value);
+}
+
+</script>
+
+<div align=left>
+<button onclick="back()" > Back </button>
+<button onclick="save()"> Save </button>
+</div>
+
+<div class="grid-container">
+<div>
+<textarea id="entry" onchange="refresh()" rows=40 align=right style="min-width: 400px; max-width: 100%; width: 100% ">
+{{data}}
+</textarea>
+</div>
+
+<div class="preview" id="preview" align=left style="max-width: 100%; padding-left: 20px"></div>
+</div>
+
+
+<script> refresh(); </script>
+
+{% endblock %}

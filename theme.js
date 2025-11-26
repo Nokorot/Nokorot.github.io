@@ -29,7 +29,7 @@
   } else {
     // Look up OS prefered theme
     const preferedDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setTheme(preferesdark ? "dark" : "light");
+    setTheme(preferedDark ? "dark" : "light");
   }
 
   btn.addEventListener("click", () => {
